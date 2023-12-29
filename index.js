@@ -33,6 +33,16 @@ const getAllUsers = (roomId) => {
     return userInRooms;
 }
 
+app.get("/", (req, res) => {
+    res.send("I am Alive!!");
+})
+
+app.post("/", (req, res) => {
+    const {name} = req.body;
+
+    res.send({name, time: new Date()});
+})
+
 io.on('connection', (socket) => {
     console.log('a user connected ' + socket.id);
 
